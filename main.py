@@ -407,6 +407,25 @@ def build_gui():
             messagebox.showinfo("Loaded", f"'{fname}' loaded with {len(route_list)} jumps")
 
     lb_csv.bind('<<ListboxSelect>>', on_load)
+    
+    # Spansh link and instructions
+    def open_spansh():
+        import webbrowser
+        webbrowser.open('https://spansh.co.uk/plotter')
+    
+    spansh_frame = tk.Frame(tab_load, bg=ELITE_DARK)
+    spansh_frame.pack(fill='x', padx=20, pady=(10, 5))
+    
+    tk.Button(spansh_frame, text='Open Spansh Neutron Plotter', bg=ELITE_ORANGE, fg=ELITE_DARK,
+              font=('Segoe UI', 10, 'bold'), command=open_spansh,
+              activebackground='#FF9944', activeforeground=ELITE_DARK,
+              relief='flat', padx=15, pady=5).pack()
+    
+    instructions = tk.Label(tab_load, 
+                            text='In Spansh, after plotting a neutron route, click "Download as CSV".\nSave that CSV file in your EDNA directory under Routes.\nIt will appear upon next launch.',
+                            font=('Segoe UI', 9), fg=ELITE_AMBER, bg=ELITE_DARK, 
+                            justify='center', wraplength=600)
+    instructions.pack(pady=(5, 10))
 
     # --- SETTINGS TAB ---
     tab_set = ttk.Frame(tabs)
