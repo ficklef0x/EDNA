@@ -7,3 +7,6 @@ build/
 app.log
 *.exe
 EDNA.zip
+config.json
+Routes/*.csv
+Routes/*.json
