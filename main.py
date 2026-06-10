@@ -14,7 +14,13 @@ import pyautogui
 import logging
 import time
 
-log_dir = os.path.dirname(os.path.abspath(__file__))
+# Handle PyInstaller path vs script path
+if hasattr(sys, '_MEIPASS'):
+    base_dir = os.path.dirname(sys.executable)
+else:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+log_dir = base_dir
 log_file = os.path.join(log_dir, 'app.log')
 logging.basicConfig(
     filename=log_file,
@@ -120,7 +126,7 @@ def ensure_single_instance():
 def save_config(cfg):
     global config_data
     try:
-        config_path = os.path.join(log_dir, CONFIG_FILE)
+        config_path = os.path.join(base_dir, CONFIG_FILE)
         with open(config_path, "w") as f:
             json.dump(cfg, f)
         config_data.update(cfg)
@@ -136,7 +142,7 @@ def load_config():
         "enter_key": None,
         "mode": "clipboard"
     }
-    config_path = os.path.join(log_dir, CONFIG_FILE)
+    config_path = os.path.join(base_dir, CONFIG_FILE)
     if os.path.exists(config_path):
         try:
             with open(config_path, "r") as f:
@@ -165,7 +171,7 @@ def load_progress(path):
             logging.error(f"[PROGRESS] Error: {e}")
     return 0
 
-routes_dir = os.path.join(log_dir, "Routes")
+routes_dir = os.path.join(base_dir, "Routes")
 
 def ensure_routes_dir():
     if not os.path.exists(routes_dir):
