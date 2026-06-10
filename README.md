@@ -12,10 +12,7 @@
   - **Clipboard**: Copies system names to clipboard
   - **Keystroke**: Types system names directly into Elite Dangerous
 - **Route Management**: Load route CSV files and track progress
-- **Manual Navigation**: Previous/Next buttons and Reset Route functionality
 - **Progress Persistence**: Automatically saves and resumes your position
-- **Elite Dangerous Theme**: Authentic orange/amber/green dark UI
-- **Single-Instance Lock**: Prevents accidental multiple launches
 
 ---
 
@@ -60,15 +57,6 @@
 2. Click **DETECT** next to the action you want to bind
 3. Press your joystick button(s) or keyboard key(s)
 4. Release to confirm the binding
-
-### Controls
-
-| Action | Description |
-|--------|-------------|
-| **Next Jump** | Advance to the next system in the route |
-| **Previous Jump** | Go back to the previous system |
-| **Enter Jump** | Copy/type the current system name |
-| **Reset Route** | Return to the beginning of the route |
 
 ### Input Modes
 
